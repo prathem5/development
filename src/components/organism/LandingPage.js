@@ -10,12 +10,13 @@ import {
   Grid,
   Row,
   Column,
-  RadioButtonGroup,
-  RadioButton
+  ProgressIndicator,
+  ProgressStep
  
 } from 'carbon-components-react';
 import { createUseStyles } from 'react-jss';
-import { fontFamily, lineHeight, paddingTop } from 'styled-system';
+import ProgressBar from '../molecules/ProgressBar/ProgressBar';
+
 
 
 
@@ -58,11 +59,9 @@ const styles = createUseStyles({
    paddingBottom:'3rem',
    fontFamily:'Victor'
  },
- progressBarContainer:{
-paddingBottom:'2.5rem'
- },
- RadioButton:{
-   borderTop:'3px solid transperent'
+
+ progressBar:{
+  
 
  },
  infoDescription:{
@@ -85,33 +84,8 @@ const LandingPage = () => {
       <div className={classes.pageHeading} >
         <h1>Enter your personal information</h1>
    </div>
-   <div>
-     <div >
-  <RadioButtonGroup
-  className={classes.progressBarContainer}
-    defaultSelected="default-selected"
-    legend="Group Legend"
-    name="radio-button-group"
-    valueSelected="default-selected"
-   orientation='horizontal'>
-    <RadioButton
-      id="radio-1"
-      labelText="Welcome"
-      checked="true"
-    />
-    <RadioButton
-      id="radio-2"
-      labelText="Page Validation"
-      value="default-selected"
-    />
-    <RadioButton
-      id="radio-3"
-      labelText="Review"
-      value="disabled"
-    />
-  </RadioButtonGroup>
-  </div>
-   </div>
+   <ProgressBar/>
+   
       <div className ={classes.formContainer}>
       <div> 
       <labelText className= {classes.dexcriptionText} style={{fontWeight: ''}} >Please enter the same information you provided in your Providence health system medical record.</labelText>
@@ -129,10 +103,12 @@ const LandingPage = () => {
         
   <Column >
     <TextInput
+   
       id="test2"
       invalidText="Invalid error message."
       labelText="FirstName"
       placeholder="Jhon"
+      
       
     />
 </Column>
@@ -165,19 +141,25 @@ const LandingPage = () => {
   </Column>
   </Row>
   <div style={{paddingTop: '2rem'}}>
-  <span>Mobile Number</span>  
-  <Row  >
-  <Column style={{fontSize: '.75rem' ,lineHeight:'0'}}>  
+    
+  <span style={{fontSize:'.75rem'}}>Mobile Number</span>  
+  
+  <Row >
+  
+  <Column style={{lineHeight:'0',}}>  
+  
     <TextInput
+    
       id="test2"
       invalidText="Invalid error message."
       labelText="To receive text messages and download our mobile application"
       placeholder="(###)###-###"
     />
 </Column>
-  <Column>
+  <Column style={{paddingTop:'1rem'}}>
     
   <TextInput
+  
       id="test2"
       invalidText="Invalid error message."
       labelText="Email"

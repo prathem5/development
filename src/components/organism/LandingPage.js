@@ -61,6 +61,10 @@ const styles = createUseStyles({
  progressBarContainer:{
 paddingBottom:'2.5rem'
  },
+ RadioButton:{
+   borderTop:'3px solid transperent'
+
+ },
  infoDescription:{
   
  fontSize : '0.875rem',

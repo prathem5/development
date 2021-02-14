@@ -1,25 +1,50 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Button, Column, Content } from 'carbon-components-react';
+import Header from './components/molecules/Header';
+import { Route, Switch } from 'react-router-dom';
+import LandingPage from './components/organism/';
+import { createUseStyles } from 'react-jss';
+import { color, flex, flexDirection, flexGrow, maxWidth } from 'styled-system';
 
-function App() {
+const styles = createUseStyles({
+  bxContainer:{
+    margin: {
+      top: '0',
+      right: 'auto',
+      bottom: 0,
+      left: 'auto'
+    },
+    maxWidth:'800px'
+  },
+   
+
+    Container:{
+      display: 'flex',
+      flexGrow: 1,
+      flexDirection: 'column',
+
+    }
+    
+})
+
+
+const App = () => {
+  const classes = styles()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+  <Header />
+  <div className={classes.Container}>
+  <Content className ={classes.bxContainer}>
+  <Switch>
+  <Route exact path="/" component={LandingPage} />
+  
+</Switch>
+  </Content>
+  </div>
+  </div>
   );
+
 }
 
 export default App;
